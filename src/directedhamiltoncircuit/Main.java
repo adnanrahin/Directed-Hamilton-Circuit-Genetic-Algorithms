@@ -9,7 +9,8 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        List<String> FileContent = readFile("/home/adnan/source-code/IdeaProjects/Directed-Hamilton-Circuit-Genetic-Algorithms/sourceFile.txt");
+        List<String> FileContent = readFile("/home/adnan/source-code/IdeaProjects/" +
+                "Directed-Hamilton-Circuit-Genetic-Algorithms/sourceFile.txt");
         String v = FileContent.get(0);
         int NumberOfVertex = Integer.parseInt(v);
         Graph g = new Graph(NumberOfVertex);
