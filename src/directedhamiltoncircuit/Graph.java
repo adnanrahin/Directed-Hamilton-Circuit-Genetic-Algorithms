@@ -51,14 +51,16 @@ public class Graph {
         return edges;
     }
 
-    public void printGraph() {
+    public String printGraph() {
+        String str = new String();
         for (int i = 0; i < vCount; i++) {
             List<Integer> edges = neighbours(i);
-            System.out.print(i + ": ");
+            str = str + Integer.toString(i) +  ": ";
             for (int j = 0; j < edges.size(); j++) {
-                System.out.print(edges.get(j) + " ");
+                str = str + Integer.toString(edges.get(j)) + " ";
             }
-            System.out.println();
+            str = str + "\n";
         }
+        return str;
     }
 }

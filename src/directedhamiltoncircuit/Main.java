@@ -20,12 +20,14 @@ public class Main {
         }
 
         // print Graph
-        g.printGraph();
+        String graphPath = g.printGraph();
 
         // Hamiltonian Circuit Algorithm
-        System.out.println("Backtracking Hamiltonian Circuit Algorithm:");
         HamiltoninCircuit hamiltoninCircuit = new HamiltoninCircuit(g);
-        hamiltoninCircuit.hamCircuit();
+        String solution = hamiltoninCircuit.hamCircuit();
+
+        String printScreen = "Graph: \n" + graphPath + "Solution: \n" + solution;
+        System.out.println(printScreen);
     }
 
     public static List<String> readFile(String filepath) {

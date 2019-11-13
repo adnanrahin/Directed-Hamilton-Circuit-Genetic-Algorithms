@@ -8,8 +8,9 @@ public class HamiltoninCircuit {
         this.graph = graph;
     }
 
-    public void hamCircuit() {
+    public String hamCircuit() {
         // vertex count
+        String str = new String();
         int V = this.graph.getvCount();
 
         // path matrix
@@ -21,14 +22,14 @@ public class HamiltoninCircuit {
         path[0] = 0;
 
         if (solveHamCircuit(V, path, 1) == false) {
-            System.out.println("Solution does not exist!");
+            str = new String("Solution does not exist!");
         } else {
-            System.out.println("Solution exists! The following is one of the solutions:");
+            str = str + "Solution exists! The following is one of the solutions:\n";
             for (int i = 0; i < V; i++) {
-                System.out.print(" " + path[i] + " ");
+                str = str + Integer.toString(path[i]) + " ";
             }
         }
-
+        return str;
     }
 
     public boolean canBeAdded(int v, int path[], int pos) {
