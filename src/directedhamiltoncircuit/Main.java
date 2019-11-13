@@ -9,13 +9,12 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        List<String> filecontent = readFile("/home/adnan/source-code/IdeaProjects/Directed-Hamilton-Circuit-Genetic-Algorithms/sourceFile.txt");
-        Graph g = new Graph(5);
-
-        System.out.println("Graph:");
-
-        for (String str : filecontent) {
-            String arr[] = str.split(" ");
+        List<String> FileContent = readFile("/home/adnan/source-code/IdeaProjects/Directed-Hamilton-Circuit-Genetic-Algorithms/sourceFile.txt");
+        String v = FileContent.get(0);
+        int NumberOfVertex = Integer.parseInt(v);
+        Graph g = new Graph(NumberOfVertex);
+        for (int i = 1; i < FileContent.size(); i++) {
+            String arr[] = FileContent.get(i).split(" ");
             g.addEdge(Integer.parseInt(arr[0]), Integer.parseInt(arr[1]));
         }
 
