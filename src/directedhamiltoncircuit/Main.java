@@ -24,7 +24,7 @@ public class Main {
         // Hamiltonian Circuit Algorithm
         System.out.println("Backtracking Hamiltonian Circuit Algorithm:");
         HamiltoninCircuit hamiltoninCircuit = new HamiltoninCircuit(g);
-        hamiltoninCircuit.hamCircuit(g);
+        hamiltoninCircuit.hamCircuit();
     }
 
     public static List<String> readFile(String filepath) {

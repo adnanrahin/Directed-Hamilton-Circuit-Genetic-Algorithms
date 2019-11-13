@@ -8,9 +8,9 @@ public class HamiltoninCircuit {
         this.graph = graph;
     }
 
-    static void hamCircuit(Graph g) {
+    public void hamCircuit() {
         // vertex count
-        int V = g.getvCount();
+        int V = this.graph.getvCount();
 
         // path matrix
         int path[] = new int[V];
@@ -20,7 +20,7 @@ public class HamiltoninCircuit {
         }
         path[0] = 0;
 
-        if (solveHamCircuit(V, g, path, 1) == false) {
+        if (solveHamCircuit(V, path, 1) == false) {
             System.out.println("Solution does not exist!");
         } else {
             System.out.println("Solution exists! The following is one of the solutions:");
@@ -31,9 +31,9 @@ public class HamiltoninCircuit {
 
     }
 
-    static boolean canBeAdded(int v, Graph g, int path[], int pos) {
+    public boolean canBeAdded(int v, int path[], int pos) {
         // if vertex is already adjacent of previously added vertex
-        if (g.getAdj()[pos - 1][v] == 0) {
+        if (this.graph.getAdj()[pos - 1][v] == 0) {
             return false;
         }
 
@@ -46,10 +46,10 @@ public class HamiltoninCircuit {
         return true;
     }
 
-    static boolean solveHamCircuit(int V, Graph g, int path[], int pos) {
+    public boolean solveHamCircuit(int V, int path[], int pos) {
         // check if all are included and if it makes a circle
         if (pos == V) {
-            if (g.getAdj()[path[pos - 1]][path[0]] == 1) {
+            if (this.graph.getAdj()[path[pos - 1]][path[0]] == 1) {
                 return true;
             } else {
                 return false;
@@ -59,11 +59,11 @@ public class HamiltoninCircuit {
         // try adding different vertices
         for (int v = 1; v < V; v++) {
             // check if it can be added
-            if (canBeAdded(v, g, path, pos)) {
+            if (canBeAdded(v, path, pos)) {
                 path[pos] = v;
 
                 // call function again recursively to build the path
-                if (solveHamCircuit(V, g, path, pos + 1) == true) {
+                if (solveHamCircuit(V, path, pos + 1) == true) {
                     return true;
                 }
 
